@@ -6,9 +6,9 @@ Builder.load_file('Convert.kv')
 from kivy.core.window import Window
 from kivy.uix.screenmanager import ScreenManager, Screen
 
-from mainScreen import MainScreen
-from basicScreen import BasicScreen
-from aboutScreen import AboutScreen
+from screen.mainScreen import MainScreen
+from screen.basicScreen import BasicScreen
+from screen.aboutScreen import AboutScreen
 
 Window.size = (480, 853) #Размер окна, в 2,25 раз меньше, чем 1080*1920 
 
