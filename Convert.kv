@@ -1,4 +1,4 @@
-<MainScreen>:
+<MainScreen>: #Дизайн основной страницы приложения
     GridLayout:
         rows: 3
         MDTopAppBar:
@@ -54,13 +54,157 @@
                         on_press:root.openMainScreen()
                         IconLeftWidget:
                             icon: "home"
+                            on_press:root.openMainScreen()
                     OneLineIconListItem:
-                        text: "Обычные вычисления"
+                        text: "Обычные преобразования"
                         on_press:root.openBasic()
                         IconLeftWidget:
                             icon: "numeric"
+                            on_press:root.openBasic()
                     OneLineIconListItem:
-                        text: "О создателе"
+                        text: "О приложении"
                         on_press:root.openAbout()
                         IconLeftWidget:
                             icon: "account-question"
+                            on_press:root.openAbout()
+
+<BasicScreen>: #Дизайн страницы стандартных вычислений
+    GridLayout:
+        rows: 3
+        MDTopAppBar:
+            title: 'Нестандартный конвертер чисел'
+            left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+            elevation: 2
+        MDLabel:
+            halign: "center"
+            text: 'Стандартные преобразования'
+            font_size: '24sp'
+        GridLayout:
+            rows: 3
+            cols: 3
+            MDLabel:
+                halign: "center"
+                text: 'Кнопка 1'
+                font_size: '24sp'
+            MDLabel:
+                halign: "center"
+                text: 'Кнопка 2'
+                font_size: '24sp'
+            MDLabel:
+                halign: "center"
+                text: 'Кнопка 3'
+                font_size: '24sp'
+            MDLabel:
+                halign: "center"
+                text: 'Кнопка 4'
+                font_size: '24sp'
+            MDLabel:
+                halign: "center"
+                text: 'Кнопка 5'
+                font_size: '24sp'
+            MDLabel:
+                halign: "center"
+                text: 'Кнопка 6'
+                font_size: '24sp'
+
+    MDNavigationDrawer: #Меню
+        id: nav_drawer
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: '10dp'
+            MDLabel:
+                size_hint_y: None
+                height: self.texture_size[1]
+                text: "Меню навигации"
+                font_style: "Subtitle1"
+            ScrollView:
+                MDList:
+                    OneLineIconListItem:
+                        text: "Главная"
+                        on_press:root.openMainScreen()
+                        IconLeftWidget:
+                            icon: "home"
+                            on_press:root.openMainScreen()
+                    OneLineIconListItem:
+                        text: "Обычные преобразования"
+                        on_press:root.openBasic()
+                        IconLeftWidget:
+                            icon: "numeric"
+                            on_press:root.openBasic()
+                    OneLineIconListItem:
+                        text: "О приложении"
+                        on_press:root.openAbout()
+                        IconLeftWidget:
+                            icon: "account-question"
+                            on_press:root.openAbout()
+<AboutScreen>:
+    GridLayout:
+        rows: 3
+        MDTopAppBar:
+            title: 'Нестандартный конвертер чисел'
+            left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+            elevation: 2
+        MDLabel:
+            halign: "center"
+            text: 'Конвертер чисел в нестандартные системы счисления'
+            font_size: '24sp'
+        GridLayout:
+            rows: 3
+            cols: 1
+            MDLabel:
+                halign: "center"
+                text: 'Приложение разработано на языке Python с использованием фреймворков Kivy и KivyMD'
+                font_size: '24sp'
+            MDLabel:
+                halign: "center"
+                text: 'Проект создан в рамках курсовой работы, апрель-май 2023'
+                font_size: '24sp'
+            GridLayout:
+                rows: 2
+                cols: 3
+                Image:
+                    source: 'logo-python.png'
+                Image:
+                    source: 'logo-kivy.png'
+                Image:
+                    source: 'logo-kivymd.png'
+                MDLabel:
+                    halign: "center"
+                    text: 'Python 3'
+                MDLabel:
+                    halign: "center"
+                    text: 'Kivy'
+                MDLabel:
+                    halign: "center"
+                    text: 'KivyMD'
+
+    MDNavigationDrawer: #Меню
+        id: nav_drawer
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: '10dp'
+            MDLabel:
+                size_hint_y: None
+                height: self.texture_size[1]
+                text: "Меню навигации"
+                font_style: "Subtitle1"
+            ScrollView:
+                MDList:
+                    OneLineIconListItem:
+                        text: "Главная"
+                        on_press:root.openMainScreen()
+                        IconLeftWidget:
+                            icon: "home"
+                            on_press:root.openMainScreen()
+                    OneLineIconListItem:
+                        text: "Обычные преобразования"
+                        on_press:root.openBasic()
+                        IconLeftWidget:
+                            icon: "numeric"
+                            on_press:root.openBasic()
+                    OneLineIconListItem:
+                        text: "О приложении"
+                        on_press:root.openAbout()
+                        IconLeftWidget:
+                            icon: "account-question"
+                            on_press:root.openAbout()
