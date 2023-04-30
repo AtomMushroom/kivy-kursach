@@ -6,6 +6,7 @@ Builder.load_file('Convert.kv')
 from kivy.core.window import Window
 from kivy.uix.screenmanager import ScreenManager, Screen
 
+#Импорты экранов (страниц)
 from screen.mainScreen import MainScreen
 from screen.basicScreen import BasicScreen
 from screen.aboutScreen import AboutScreen

@@ -1,6 +1,7 @@
 <MainScreen>: #Дизайн основной страницы приложения
     GridLayout:
-        rows: 3
+        rows: 5
+        spacing: "24dp"
         MDTopAppBar:
         	title: 'Нестандартный конвертер чисел'
         	left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
@@ -9,33 +10,51 @@
         	halign: "center"
             text: 'Нестандартный конвертер чисел'
             font_size: '24sp'
+        MDLabel:
+            id: result_main
+            halign: "center"
+            font_size: '24sp'
+        MDTextField:
+            id: number_input
+            hint_text: "Введите число"
+            multiline: False
+            input_filter: "int"
+            mode: "fill"
+            helper_text: "Число должно быть целое"
         GridLayout:
-        	rows: 3
-        	cols: 3
-        	MDLabel:
-        		halign: "center"
-            	text: 'Кнопка 1'
-            	font_size: '24sp'
-            MDLabel:
-            	halign: "center"
-            	text: 'Кнопка 2'
-            	font_size: '24sp'
-            MDLabel:
-            	halign: "center"
-            	text: 'Кнопка 3'
-            	font_size: '24sp'
-            MDLabel:
-            	halign: "center"
-            	text: 'Кнопка 4'
-            	font_size: '24sp'
-            MDLabel:
-            	halign: "center"
-            	text: 'Кнопка 5'
-            	font_size: '24sp'
-            MDLabel:
-            	halign: "center"
-            	text: 'Кнопка 6'
-            	font_size: '24sp'
+        	rows: 4
+        	cols: 2
+            spacing: "12dp"
+        	MDRaisedButton:
+        		size_hint: 1,1
+            	text: 'Римская система'
+            	font_size: '15sp'
+                on_press: root.convertRome()
+            MDRaisedButton:
+            	size_hint: 1,1
+            	text: 'Морзе'
+            	font_size: '15sp'
+                on_press: root.convertMorse()
+            MDRaisedButton:
+            	size_hint: 1,1
+            	text: 'Система Мали'
+            	font_size: '15sp'
+                on_press: root.convertMali()
+            MDRaisedButton:
+            	size_hint: 1,1
+            	text: 'Система Аламбак'
+            	font_size: '15sp'
+                on_press: root.convertAlambak()
+            MDRaisedButton:
+                size_hint: 1,1
+                text: 'Система Цоциль'
+                font_size: '15sp'
+                on_press: root.convertTsotsil()
+            MDRaisedButton:
+                size_hint: 1,1
+                text: 'Система Майя'
+                font_size: '15sp'
+                on_press: root.convertMaya()
 
     MDNavigationDrawer: #Меню
         id: nav_drawer
@@ -70,7 +89,8 @@
 
 <BasicScreen>: #Дизайн страницы стандартных вычислений
     GridLayout:
-        rows: 3
+        rows: 5
+        spacing: "24dp"
         MDTopAppBar:
             title: 'Нестандартный конвертер чисел'
             left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
@@ -79,33 +99,41 @@
             halign: "center"
             text: 'Стандартные преобразования'
             font_size: '24sp'
+        MDLabel:
+            id: result_basic
+            halign: "center"
+            font_size: '24sp'
+        MDTextField:
+            id: number_input
+            hint_text: "Введите число"
+            multiline: False
+            #input_filter: "int"
+            mode: "fill"
+            #helper_text: "Число должно быть целое"
         GridLayout:
             rows: 3
-            cols: 3
-            MDLabel:
-                halign: "center"
-                text: 'Кнопка 1'
-                font_size: '24sp'
-            MDLabel:
-                halign: "center"
-                text: 'Кнопка 2'
-                font_size: '24sp'
-            MDLabel:
-                halign: "center"
-                text: 'Кнопка 3'
-                font_size: '24sp'
-            MDLabel:
-                halign: "center"
-                text: 'Кнопка 4'
-                font_size: '24sp'
-            MDLabel:
-                halign: "center"
-                text: 'Кнопка 5'
-                font_size: '24sp'
-            MDLabel:
-                halign: "center"
-                text: 'Кнопка 6'
-                font_size: '24sp'
+            cols: 2
+            spacing: "12dp"
+            MDRaisedButton:
+                size_hint: 1,1
+                text: 'Двоичная система'
+                font_size: '15sp'
+                on_press: root.convert(1, number_input.text)
+            MDRaisedButton:
+                size_hint: 1,1
+                text: 'Восьмиричная система'
+                font_size: '15sp'
+                on_press: root.convert(2, number_input.text)
+            MDRaisedButton:
+                size_hint: 1,1
+                text: 'Десятичная система'
+                font_size: '15sp'
+                on_press: root.convert(3, number_input.text)
+            MDRaisedButton:
+                size_hint: 1,1
+                text: 'Шестнадцатиричная система'
+                font_size: '15sp'
+                on_press: root.convert(4, number_input.text)
 
     MDNavigationDrawer: #Меню
         id: nav_drawer
@@ -162,12 +190,27 @@
             GridLayout:
                 rows: 2
                 cols: 3
-                Image:
-                    source: 'logos/logo-python.png'
-                Image:
-                    source: 'logos/logo-kivy.png'
-                Image:
-                    source: 'logos/logo-kivymd.png'
+                Button:
+                    background_color: 0, 0, 0, 0
+                    size_hint: 1,1
+                    on_press: root.openSite(1)
+                    Image:
+                        source: 'logos/logo-python.png'
+                        center: (self.parent.center_x, self.parent.center_y)
+                Button:
+                    background_color: 0, 0, 0, 0
+                    size_hint: 1,1
+                    on_press: root.openSite(2)
+                    Image:
+                        source: 'logos/logo-kivy.png'
+                        center: (self.parent.center_x, self.parent.center_y)
+                Button:
+                    background_color: 0, 0, 0, 0
+                    size_hint: 1,1
+                    on_press: root.openSite(3)
+                    Image:
+                        source: 'logos/logo-kivymd.png'
+                        center: (self.parent.center_x, self.parent.center_y)
                 MDLabel:
                     halign: "center"
                     text: 'Python 3'
