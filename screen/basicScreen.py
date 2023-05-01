@@ -1,5 +1,7 @@
 import kivy
 from kivymd.uix.screen import MDScreen
+from kivy.core.window import Window
+from kivymd.uix.snackbar import Snackbar
 
 class BasicScreen(MDScreen):
 	"""
@@ -30,74 +32,81 @@ class BasicScreen(MDScreen):
 		"""
 		Перевод числа в двоичную, восьмиричную, десятичную и шестнадцатиричную системы
 		"""
-		if number[:2] == '0b' or number[:2] == '0B':
-			num = int(number[2:])
-			if index == 1:
-				self.ids.result_basic.text = ''
-				self.ids.result_basic.text = "Результат: " + format(num, 'd')
-			elif index == 2:
-				onum = int(str(num), 2)
-				onum = oct(onum)
-				self.ids.result_basic.text = ''
-				self.ids.result_basic.text = "Результат: " + onum[2:]
-			elif index == 3:
-				decnum = int(number[2:], 2)
-				self.ids.result_basic.text = ''
-				self.ids.result_basic.text = "Результат: " + str(decnum)
+		try:
+			if number[:2] == '0b' or number[:2] == '0B':
+				num = int(number[2:])
+				if index == 1:
+					self.ids.result_basic.text = ''
+					self.ids.result_basic.text = "Результат: " + format(num, 'd')
+				elif index == 2:
+					onum = int(str(num), 2)
+					onum = oct(onum)
+					self.ids.result_basic.text = ''
+					self.ids.result_basic.text = "Результат: " + onum[2:]
+				elif index == 3:
+					decnum = int(number[2:], 2)
+					self.ids.result_basic.text = ''
+					self.ids.result_basic.text = "Результат: " + str(decnum)
+				else:
+					hexnum = int(str(num), 2)
+					hexnum = hex(hexnum)
+					self.ids.result_basic.text = ''
+					self.ids.result_basic.text = "Результат: " + hexnum[2:]
+			elif number[:2] == '0o' or number[2:] == '0O':
+				num = int(number[2:])
+				if index == 1:
+					bnum = int(str(num), 8)
+					bnum = bin(bnum)
+					self.ids.result_basic.text = ''
+					self.ids.result_basic.text = "Результат: " + bnum[2:]
+				elif index == 2:
+					self.ids.result_basic.text = ''
+					self.ids.result_basic.text = "Результат: " + format(num, 'd')
+				elif index == 3:
+					decnum = int(number[2:], 8)
+					self.ids.result_basic.text = ''
+					self.ids.result_basic.text = "Результат: " + str(decnum)
+				else: 
+					hexnum = int(str(num), 8)
+					hexnum = hex(hexnum)
+					self.ids.result_basic.text = ''
+					self.ids.result_basic.text = "Результат: " + hexnum[2:]
+			elif number[:2] == '0x' or number[2:] == '0X':
+				if index == 1:
+					res = "{0:08b}".format(int(number[2:], 16))
+					self.ids.result_basic.text = ''
+					self.ids.result_basic.text = "Результат: " + res
+				elif index == 2:
+					num = number[2:]
+					res = oct(int(num, 16))
+					self.ids.result_basic.text = ''
+					self.ids.result_basic.text = "Результат: " + res[2:]
+				elif index == 3:
+					decnum = int(number, 16)
+					self.ids.result_basic.text = ''
+					self.ids.result_basic.text = "Результат: " + str(decnum)
+				else: 
+					self.ids.result_basic.text = ''
+					self.ids.result_basic.text = "Результат: " + number[2:]
 			else:
-				hexnum = int(str(num), 2)
-				hexnum = hex(hexnum)
-				self.ids.result_basic.text = ''
-				self.ids.result_basic.text = "Результат: " + hexnum[2:]
-		elif number[:2] == '0o' or number[2:] == '0O':
-			num = int(number[2:])
-			if index == 1:
-				bnum = int(str(num), 8)
-				bnum = bin(bnum)
-				self.ids.result_basic.text = ''
-				self.ids.result_basic.text = "Результат: " + bnum[2:]
-			elif index == 2:
-				self.ids.result_basic.text = ''
-				self.ids.result_basic.text = "Результат: " + format(num, 'd')
-			elif index == 3:
-				decnum = int(number[2:], 8)
-				self.ids.result_basic.text = ''
-				self.ids.result_basic.text = "Результат: " + str(decnum)
-			else: 
-				hexnum = int(str(num), 8)
-				hexnum = hex(hexnum)
-				self.ids.result_basic.text = ''
-				self.ids.result_basic.text = "Результат: " + hexnum[2:]
-		elif number[:2] == '0x' or number[2:] == '0X':
-			if index == 1:
-				res = "{0:08b}".format(int(number[2:], 16))
-				self.ids.result_basic.text = ''
-				self.ids.result_basic.text = "Результат: " + res
-			elif index == 2:
-				num = number[2:]
-				res = oct(int(num, 16))
-				self.ids.result_basic.text = ''
-				self.ids.result_basic.text = "Результат: " + res[2:]
-			elif index == 3:
-				decnum = int(number, 16)
-				self.ids.result_basic.text = ''
-				self.ids.result_basic.text = "Результат: " + str(decnum)
-			else: 
-				self.ids.result_basic.text = ''
-				self.ids.result_basic.text = "Результат: " + number[2:]
-		else:
-			if index == 1:
-				res = bin(int(number))
-				self.ids.result_basic.text = ''
-				self.ids.result_basic.text = "Результат: " + res[2:]
-			elif index == 2:
-				res = oct(int(number))
-				self.ids.result_basic.text = ''
-				self.ids.result_basic.text = "Результат: " + res[2:]
-			elif index == 3:
-				self.ids.result_basic.text = ''
-				self.ids.result_basic.text = "Результат: " + number
-			else:
-				res = hex(int(number))
-				self.ids.result_basic.text = ''
-				self.ids.result_basic.text = "Результат: " + res[2:]
+				if index == 1:
+					res = bin(int(number))
+					self.ids.result_basic.text = ''
+					self.ids.result_basic.text = "Результат: " + res[2:]
+				elif index == 2:
+					res = oct(int(number))
+					self.ids.result_basic.text = ''
+					self.ids.result_basic.text = "Результат: " + res[2:]
+				elif index == 3:
+					self.ids.result_basic.text = ''
+					self.ids.result_basic.text = "Результат: " + number
+				else:
+					res = hex(int(number))
+					self.ids.result_basic.text = ''
+					self.ids.result_basic.text = "Результат: " + res[2:]
+		except:
+			Snackbar(text="Введено неправильное число!",
+                     snackbar_x="10dp",
+                     snackbar_y="10dp",
+                     size_hint_x= \
+                         (Window.width - (10 * 2)) / Window.width).open()
