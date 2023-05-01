@@ -11,7 +11,7 @@ from screen.mainScreen import MainScreen
 from screen.basicScreen import BasicScreen
 from screen.aboutScreen import AboutScreen
 
-Window.size = (480, 853) #Размер окна, в 2,25 раз меньше, чем 1080*1920 
+#Window.size = (480, 853) #Размер окна, в 2,25 раз меньше, чем 1080*1920 
 
 class ConvertApp(MDApp): #Базовый класс
 	def build(self):
