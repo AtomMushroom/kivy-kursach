@@ -91,7 +91,8 @@
 <BasicScreen>: #Дизайн страницы стандартных вычислений
     GridLayout:
         rows: 5
-        spacing: "24dp"
+        spacing: "12dp"
+        paddint: "24dp"
         MDTopAppBar:
             title: 'Нестандартный конвертер чисел'
             left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
@@ -108,34 +109,33 @@
             id: number_input
             hint_text: "Введите число"
             multiline: False
-            #input_filter: "int"
             mode: "fill"
-            #helper_text: "Число должно быть целое"
+            width: root.width*0.4
         GridLayout:
-            rows: 2
+            rows: 4
             cols: 2
             spacing: "12dp"
             padding: dp(10)
             MDRaisedButton:
                 size_hint: 1,1
-                text: 'Двоичная система'
+                text: 'Двоичная'
                 font_size: '15sp'
                 on_press: root.convert(1, number_input.text)
             MDRaisedButton:
                 size_hint: 1,1
-                text: 'Восьмеричная система'
+                text: 'Восьмеричная'
                 font_size: '15sp'
-                on_press: root.convert(2, number_input.text)
+                on_press: root.convert(2,number_input.text)
             MDRaisedButton:
                 size_hint: 1,1
-                text: 'Десятичная система'
+                text: 'Десятичная'
                 font_size: '15sp'
-                on_press: root.convert(3, number_input.text)
+                on_press: root.convert(3,number_input.text)
             MDRaisedButton:
                 size_hint: 1,1
-                text: 'Шестнадцатеричная система'
+                text: 'Шестнадцатеричная'
                 font_size: '15sp'
-                on_press: root.convert(4, number_input.text)
+                on_press: root.convert(4,number_input.text)
 
     MDNavigationDrawer: #Меню
         id: nav_drawer
