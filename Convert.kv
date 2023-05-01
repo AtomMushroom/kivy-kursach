@@ -190,27 +190,15 @@
             GridLayout:
                 rows: 2
                 cols: 3
-                Button:
-                    background_color: 0, 0, 0, 0
-                    size_hint: 1,1
-                    on_press: root.openSite(1)
-                    Image:
-                        source: 'logos/logo-python.png'
-                        center: (self.parent.center_x, self.parent.center_y)
-                Button:
-                    background_color: 0, 0, 0, 0
-                    size_hint: 1,1
-                    on_press: root.openSite(2)
-                    Image:
-                        source: 'logos/logo-kivy.png'
-                        center: (self.parent.center_x, self.parent.center_y)
-                Button:
-                    background_color: 0, 0, 0, 0
-                    size_hint: 1,1
-                    on_press: root.openSite(3)
-                    Image:
-                        source: 'logos/logo-kivymd.png'
-                        center: (self.parent.center_x, self.parent.center_y)
+                Image:
+                    source: 'logos/logo-python.png'
+                    center: (self.parent.center_x, self.parent.center_y)
+                Image:
+                    source: 'logos/logo-kivy.png'
+                    center: (self.parent.center_x, self.parent.center_y)
+                Image:
+                    source: 'logos/logo-kivymd.png'
+                    center: (self.parent.center_x, self.parent.center_y)
                 MDLabel:
                     halign: "center"
                     text: 'Python 3'
