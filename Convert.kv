@@ -25,6 +25,7 @@
         	rows: 4
         	cols: 2
             spacing: "12dp"
+            padding: dp(10)
         	MDRaisedButton:
         		size_hint: 1,1
             	text: 'Римская система'
@@ -114,6 +115,7 @@
             rows: 3
             cols: 2
             spacing: "12dp"
+            padding: dp(10)
             MDRaisedButton:
                 size_hint: 1,1
                 text: 'Двоичная система'
@@ -121,7 +123,7 @@
                 on_press: root.convert(1, number_input.text)
             MDRaisedButton:
                 size_hint: 1,1
-                text: 'Восьмиричная система'
+                text: 'Восьмеричная система'
                 font_size: '15sp'
                 on_press: root.convert(2, number_input.text)
             MDRaisedButton:
@@ -131,7 +133,7 @@
                 on_press: root.convert(3, number_input.text)
             MDRaisedButton:
                 size_hint: 1,1
-                text: 'Шестнадцатиричная система'
+                text: 'Шестнадцатеричная система'
                 font_size: '15sp'
                 on_press: root.convert(4, number_input.text)
 
