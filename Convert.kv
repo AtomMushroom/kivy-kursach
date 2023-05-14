@@ -1,7 +1,7 @@
 <MainScreen>: #Дизайн основной страницы приложения
     GridLayout:
-        rows: 6
-        spacing: "20dp"
+        rows: 5
+        spacing: "24dp"
         MDTopAppBar:
         	title: 'Нестандартный конвертер чисел'
         	left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
@@ -21,10 +21,6 @@
             input_filter: "int"
             mode: "fill"
             helper_text: "Число должно быть целое"
-        MDLabel:
-            halign: "center"
-            text: ''
-            font_size: '1sp'
         GridLayout:
         	rows: 4
         	cols: 2
@@ -115,6 +111,7 @@
             multiline: False
             mode: "fill"
             width: root.width*0.4
+            helper_text: "Число должно быть с указателем (префиксом), если оно не десятичное"
         GridLayout:
             rows: 4
             cols: 2
