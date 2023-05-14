@@ -12,6 +12,8 @@ from screen.basicScreen import BasicScreen
 from screen.aboutScreen import AboutScreen
 
 #Window.size = (480, 853) #Размер окна, в 2,25 раз меньше, чем 1080*1920 
+Window.keyboard_anim_args = {'d': .2, 't': 'in_out_expo'}
+Window.softinput_mode = "below_target"
 
 class ConvertApp(MDApp): #Базовый класс
 	def build(self):
