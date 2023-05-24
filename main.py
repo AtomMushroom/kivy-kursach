@@ -31,7 +31,7 @@ class ConvertApp(MDApp): #Базовый класс
 		self.sm.add_widget(self.tempScreen)
 		self.sm.add_widget(self.aboutScreen)
 
-		self.theme_cls.theme_style = 'Light'
+		self.theme_cls.theme_style = 'Dark'
 		self.theme_cls.primary_palette = "Blue"
 
 		Builder.load_file('Convert.kv')
