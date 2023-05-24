@@ -21,6 +21,13 @@ class MainScreen(MDScreen):
 		self.ids.nav_drawer.set_state("close")
 		self.manager.current = 'basic'
 
+	def openTemp(self):
+		"""
+		Открыть страницу "Температура"
+		"""
+		self.ids.nav_drawer.set_state("close")
+		self.manager.current = 'temp'
+
 	def openAbout(self):
 		"""
 		Открыть страницу "О приложении"

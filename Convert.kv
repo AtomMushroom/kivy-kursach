@@ -82,6 +82,18 @@
                             icon: "numeric"
                             on_press:root.openBasic()
                     OneLineIconListItem:
+                        text: "Температура"
+                        on_press:root.openTemp()
+                        IconLeftWidget:
+                            icon: "coolant-temperature"
+                            on_press:root.openTemp()
+                    OneLineIconListItem:
+                        text: "Темная/светлая тема"
+                        on_press: app.switchThemeStyle()
+                        IconLeftWidget:
+                            icon: "theme-light-dark"
+                            on_press: app.switchThemeStyle()
+                    OneLineIconListItem:
                         text: "О приложении"
                         on_press:root.openAbout()
                         IconLeftWidget:
@@ -163,6 +175,117 @@
                             icon: "numeric"
                             on_press:root.openBasic()
                     OneLineIconListItem:
+                        text: "Температура"
+                        on_press:root.openTemp()
+                        IconLeftWidget:
+                            icon: "coolant-temperature"
+                            on_press:root.openTemp()
+                    OneLineIconListItem:
+                        text: "Темная/светлая тема"
+                        on_press: app.switchThemeStyle()
+                        IconLeftWidget:
+                            icon: "theme-light-dark"
+                            on_press: app.switchThemeStyle()
+                    OneLineIconListItem:
+                        text: "О приложении"
+                        on_press:root.openAbout()
+                        IconLeftWidget:
+                            icon: "account-question"
+                            on_press:root.openAbout()
+<TempScreen>:
+    GridLayout:
+        rows: 10
+        spacing: "12dp"
+        paddint: "24dp"
+        MDTopAppBar:
+            title: 'Нестандартный конвертер чисел'
+            left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+            elevation: 2
+        MDLabel:
+            halign: "center"
+            text: 'Конвертация температур'
+            font_size: '24sp'
+        MDTextField:
+            id: temp_input
+            hint_text: "Введите температуру в °С"
+            multiline: False
+            mode: "fill"
+            width: root.width*0.4
+            helper_text: ""
+            on_text_validate: root.convertTemp()
+        MDLabel:
+            id: fahrenheit_temp
+            halign: "center"
+            #text: "Шкала Фаренгейта:"
+            font_size: '24sp'
+        MDLabel:
+            id: kelvin_temp
+            halign: "center"
+            #text: "Шкала Кельвина:"
+            font_size: '24sp'
+        MDLabel:
+            id: rankine_temp
+            halign: "center"
+            #text: "Шкала Ранкина:"
+            font_size: '24sp'
+        MDLabel:
+            id: reaumur_temp
+            halign: "center"
+            #text: "Шкала Реюмора:"
+            font_size: '24sp'
+        MDLabel:
+            id: newton_temp
+            halign: "center"
+            #text: "Шкала Ньютона:"
+            font_size: '24sp'
+        MDLabel:
+            id: romer_temp
+            halign: "center"
+            #text: "Шкала Рёмера:"
+            font_size: '24sp'
+        MDLabel:
+            id: delisle_temp
+            halign: "center"
+            #text: "Шкала Делиля:"
+            font_size: '24sp'
+
+    MDNavigationDrawer: #Меню
+        id: nav_drawer
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: '10dp'
+            MDLabel:
+                size_hint_y: None
+                height: self.texture_size[1]
+                text: "Меню навигации"
+                font_style: "Subtitle1"
+            ScrollView:
+                MDList:
+                    OneLineIconListItem:
+                        text: "Главная"
+                        on_press:root.openMainScreen()
+                        IconLeftWidget:
+                            icon: "home"
+                            on_press:root.openMainScreen()
+                    OneLineIconListItem:
+                        text: "Обычные преобразования"
+                        on_press:root.openBasic()
+                        IconLeftWidget:
+                            icon: "numeric"
+                            on_press:root.openBasic()
+                    OneLineIconListItem:
+                        text: "Температура"
+                        on_press:root.openTemp()
+                        IconLeftWidget:
+                            icon: "coolant-temperature"
+                            on_press:root.openTemp()
+                    OneLineIconListItem:
+                        text: "Темная/светлая тема"
+                        on_press: app.switchThemeStyle()
+                        IconLeftWidget:
+                            icon: "theme-light-dark"
+                            on_press: app.switchThemeStyle()
+                    OneLineIconListItem:
                         text: "О приложении"
                         on_press:root.openAbout()
                         IconLeftWidget:
@@ -236,6 +359,18 @@
                         IconLeftWidget:
                             icon: "numeric"
                             on_press:root.openBasic()
+                    OneLineIconListItem:
+                        text: "Температура"
+                        on_press:root.openTemp()
+                        IconLeftWidget:
+                            icon: "coolant-temperature"
+                            on_press:root.openTemp()
+                    OneLineIconListItem:
+                        text: "Темная/светлая тема"
+                        on_press: app.switchThemeStyle()
+                        IconLeftWidget:
+                            icon: "theme-light-dark"
+                            on_press: app.switchThemeStyle()
                     OneLineIconListItem:
                         text: "О приложении"
                         on_press:root.openAbout()
