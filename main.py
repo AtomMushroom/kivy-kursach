@@ -1,7 +1,7 @@
 from kivymd.app import MDApp
 
 from kivy.lang import Builder
-#Builder.load_file('Convert.kv')
+Builder.load_file('Convert.kv')
 
 from kivy.core.window import Window
 from kivy.uix.screenmanager import ScreenManager, Screen
@@ -34,7 +34,6 @@ class ConvertApp(MDApp): #Базовый класс
 		self.theme_cls.theme_style = 'Dark'
 		self.theme_cls.primary_palette = "Blue"
 
-		Builder.load_file('Convert.kv')
 		return self.sm
 
 	def switchThemeStyle(self):
